@@ -1,0 +1,47 @@
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check" viewBox="0 0 16 16">
+      <title>Check</title>
+      <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+  </svg>
+
+  <div class="container">
+    <header>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">ABM Container</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <app-alta-container (nuevoContainer)="getContainer($event)"></app-alta-container>
+        </div>
+        <div class="col">
+          <app-modif-container [inputContainer]="containerSeleccionado"></app-modif-container>
+        </div>
+        <div class="col">
+         <app-baja-container [inputContainer]="containerSeleccionado"></app-baja-container>
+        </div>
+      </div>
+
+      <h2 class="display-6 text-center mb-4">Listado de containers</h2>
+      <div class="table-responsive">
+        <app-listado-containers (containerSelecionado)="getContainer($event)"></app-listado-containers>
+      </div>
+    </main>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div class="row">
+        <div class="col-12 col-md">
+          <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+
+    </body>

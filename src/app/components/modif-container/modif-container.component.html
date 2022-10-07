@@ -1,0 +1,31 @@
+<div class="card mb-4 rounded-3 shadow-sm">
+  <div class="card-header py-3">
+    <h4 class="my-0 fw-normal">MODIFICACIÓN</h4>
+  </div>
+
+  <div class="card-body">
+    <form class="needs-validation" [formGroup]="containerGroup" (submit)="modificarContainer()">
+      <div class="row g-3">
+        <div class="">
+          <label for="codigo" class="form-label">Código</label>
+          <input type="text" class="form-control" id="codigo" placeholder="" formControlName="codigo" [ngModel]="inputContainer?.codigo" readonly>
+        </div>
+
+        <div>
+          <label for="marca" class="form-label">Marca</label>
+          <input type="text" class="form-control" id="marca" formControlName="marca" [ngModel]="inputContainer?.marca">
+          <small  *ngIf="containerGroup.controls.marca.errors?.required && containerGroup.controls.marca.touched">La marca es requeridos.</small>
+        </div>
+
+        <div>
+          <label for="capacidad" class="form-label">Capacidad</label>
+          <input type="number" class="form-control" id="capacidad" placeholder="" formControlName="capacidad" [ngModel]="inputContainer?.capacidad">
+          <small  *ngIf="containerGroup.controls.capacidad.errors?.required && containerGroup.controls.capacidad.touched">Poner capacidad.</small>
+          <small  *ngIf="containerGroup.controls.capacidad.errors?.['min']">No debe ser mayor a 5000</small>
+        </div>
+
+        <button class="w-100 btn btn-primary btn-lg mt-2" type="submit" [disabled]="!containerGroup.valid">MODIFICAR</button>
+      </div>
+    </form>
+  </div>
+</div>

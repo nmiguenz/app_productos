@@ -1,0 +1,17 @@
+<div class="card mb-4 rounded-3 shadow-sm border-primary">
+  <div class="card-header py-3 text-white bg-primary border-primary">
+    <h4 class="my-0 fw-normal">BAJA</h4>
+  </div>
+  <div class="card-body">
+    <form class="needs-validation" [formGroup]="containerGroup" (submit)="deleteContainer()">
+      <div class="row g-3">
+        <div class="">
+          <label for="marca" class="form-label">Marca</label>
+          <input type="text" class="form-control" id="marca" placeholder="Marca a borrar..." formControlName="marca" [ngModel]="inputContainer?.marca" readonly>
+        </div>
+
+      </div>
+      <button class="w-100 btn btn-outline-danger btn-lg mt-2" type="submit" [disabled] ="!containerGroup.valid">BORRAR</button>
+    </form>
+  </div>
+</div>

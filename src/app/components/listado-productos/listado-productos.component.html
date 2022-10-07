@@ -1,0 +1,27 @@
+<div class="container-fluid py-5">
+  <h1 class="display-5 fw-bold">Tabla productos</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Descripción</th>
+        <!-- <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">País</th>
+        <th scope="col">Comestible</th> -->
+        <th scope="col">Ver más</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of listadoProductos">
+        <td>{{producto.codigo}}</td>
+        <td>{{producto.descripcion}}</td>
+        <!-- <td>{{producto.precio}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.pais.translations.spa.common}}</td>
+        <td>{{producto.comestible}}</td> -->
+        <td><button class="btn btn-outline-primary" (click)="getProductoSeleccionado(producto)">DETALLE</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

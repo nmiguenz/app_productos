@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "primer-parcial-labo-iv": {
+      "hosting": {
+        "productos": [
+          "ppproductosnmiguenz"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "primer-parcial-labo-iv"
+  }
+}

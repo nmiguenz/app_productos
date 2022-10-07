@@ -1,0 +1,12 @@
+<div class="h-100 p-5 bg-light border rounded-3" *ngIf="productoParaMostrar">
+  <div class="d-flex justify-content-between">
+    <h2>{{productoParaMostrar.pais.translations.spa.common}}</h2>
+    <span class="text-muted"><img [src]=productoParaMostrar.pais.flags.svg alt=""> </span>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><span>Capital: </span>
+      {{productoParaMostrar.pais.capital}}</li>
+      <li class="list-group-item"><span>Continente: </span>{{productoParaMostrar.pais.continents}}</li>
+    <li class="list-group-item"> <span>Población: </span> {{productoParaMostrar.pais.population}}</li>
+  </ul>
+</div>

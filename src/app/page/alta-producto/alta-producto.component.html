@@ -1,0 +1,102 @@
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../../assets/gift.png" alt="" width="72" height="57">
+      <h2>Alta Productos</h2>
+      <p class="lead">Sección donde se cargarán los productos que hay en stock.</p>
+    </div>
+
+    <div class="row g-5">
+
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <app-listado-paises (paisSeleccionado)="obtenerPais($event)"></app-listado-paises>
+      </div>
+
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Formulario de alta</h4>
+
+        <form class="needs-validation" [formGroup]="productGroup" (submit)="altaProducto()">
+
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label for="codigo" class="form-label">Código</label>
+              <input type="text" class="form-control" id="codigo" placeholder="" value="" formControlName="codigo" style="text-transform: uppercase;" >
+              <small class="error" *ngIf="productGroup.controls.codigo.errors?.required && productGroup.controls.codigo.touched">
+                Seleccione un código
+              </small>
+              <small class="error" *ngIf="productGroup.controls.codigo.errors?.['minlength']">
+                Mínimo 4 caracateres
+              </small>
+            </div>
+
+            <div class="col-sm-8">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <input type="text" class="form-control" id="descripcion" formControlName="descripcion" placeholder="" value="" style="text-transform: capitalize;" required>
+              <small class="error" *ngIf="productGroup.controls.descripcion.errors?.required && productGroup.controls.descripcion.touched">
+                Seleccione una descripcion
+              </small>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="precio" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="precio" formControlName="precio" placeholder="" value="" required>
+              <small class="error" *ngIf="productGroup.controls.precio.errors?.required && productGroup.controls.precio.touched">
+                Seleccione un precio
+              </small>
+              <small class="error" *ngIf="productGroup.controls.precio.errors?.['min']">
+                El mínimo es 100
+              </small>
+              <small class="error" *ngIf="productGroup.controls.precio.errors?.['max']">
+                El máximo es 10000
+              </small>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="stock" class="form-label">Stock</label>
+              <input type="number" class="form-control" id="stock" formControlName="stock" placeholder="" value="" required>
+              <small class="error" *ngIf="productGroup.controls.stock.errors?.required && productGroup.controls.stock.touched">
+                Seleccione un stock
+              </small>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="comestible" class="form-label">Comestible</label>
+              <select class="form-select" id="country" formControlName="comestible" required>
+                <option value="" disabled>Choose...</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </select>
+              <small class="error" *ngIf="productGroup.controls.comestible.errors?.required && productGroup.controls.comestible.touched">
+                Seleccione un comestible
+              </small>
+            </div>
+
+            <div class="col-8">
+              <label for="pais" class="form-label">pais</label>
+              <input type="pais" class="form-control" id="pais" formControlName="pais" readonly>
+              <small class="error" *ngIf="productGroup.controls.pais.errors?.required && productGroup.controls.pais.touched">
+                Seleccione un pais
+              </small>
+            </div>
+
+            <div class="col-4" *ngIf="bandera">
+                <img [src]=[bandera] alt="{{pais.translations.spa.common}}">
+            </div>
+          <hr class="my-4">
+
+          </div>
+          <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!productGroup.valid">ALTA </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017–2021 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>

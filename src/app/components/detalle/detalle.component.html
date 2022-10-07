@@ -1,0 +1,10 @@
+<div class="h-100 p-5 text-white bg-dark rounded-3" *ngIf="productoParaMostrar">
+  <h2>{{productoParaMostrar.descripcion}}</h2>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><span>Código: </span>
+      {{productoParaMostrar.codigo}}</li>
+    <li class="list-group-item"> <span>Precio: </span> {{productoParaMostrar.precio | currency}}</li>
+    <li class="list-group-item"><span>Stock: </span>{{productoParaMostrar.stock}}</li>
+    <li class="list-group-item"><span>Comestible: </span>{{productoParaMostrar.comestible | transformBoolean}}</li>
+  </ul>
+</div>
